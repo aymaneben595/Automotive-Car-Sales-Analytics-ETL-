@@ -1,211 +1,179 @@
-#!/usr/bin/env python3
-"""
-elt_pipeline.py
-Production-ready ETL/ELT pipeline for Smart Budget car sales.
-- Connects to PostgreSQL using SQLAlchemy
-- Loads views produced by SQL pipeline (schema: analytics)
-- Calculates KPIs
-- Exports CSVs to ./outputs with timestamped filenames
+# ==========================================================
+# 🚗 Car Sales Data Analysis – Python Workflow
+# ==========================================================
+# Author: Aïmane Benkhadda
+# Project: Car Sales Dashboard (Data Analytics Portfolio)
+# Description:
+# This script connects to a PostgreSQL database, loads car sales data,
+# performs cleaning and analysis, and exports the results for visualization.
+# The code is structured and commented so that even a non-technical recruiter
+# can follow the logic behind the workflow.
+# ==========================================================
 
-Run:
-  pip install -r requirements.txt
-  python elt_pipeline.py
 
-requirements (suggested):
-  python-dotenv
-  sqlalchemy
-  psycopg2-binary
-  pandas
-"""
+# ----------------------------------------------------------
+# 1. Import Required Libraries
+# ----------------------------------------------------------
+# pandas and numpy for data manipulation
+# psycopg2 for database connection
+# dotenv to load credentials from a secure .env file
+# matplotlib for optional visual validation
+# ----------------------------------------------------------
 
 import os
-import sys
-import logging
-from datetime import datetime
-from pathlib import Path
-
 import pandas as pd
-from sqlalchemy import create_engine, text
+import numpy as np
+import psycopg2
 from dotenv import load_dotenv
+import matplotlib.pyplot as plt
 
-# -------------------------
-# Logging
-# -------------------------
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(message)s",
-    handlers=[logging.StreamHandler(sys.stdout)]
-)
-log = logging.getLogger("elt_pipeline")
 
-# -------------------------
-# 1) Load environment
-# -------------------------
-load_dotenv()  # loads .env from current dir
+# ----------------------------------------------------------
+# 2. Load Environment Variables
+# ----------------------------------------------------------
+# The .env file securely stores your database credentials.
+# This avoids hardcoding sensitive information in the script.
+# Example .env file:
+#   DB_NAME=car_sales
+#   DB_USER=postgres
+#   DB_PASSWORD=your_password
+#   DB_HOST=localhost
+#   DB_PORT=5432
+# ----------------------------------------------------------
 
-PG_USER = os.getenv("PG_USER")
-PG_PASS = os.getenv("PG_PASS")
-PG_HOST = os.getenv("PG_HOST", "localhost")
-PG_PORT = os.getenv("PG_PORT", "5432")
-PG_DB   = os.getenv("PG_DB", "smart_budget")
-OUTPUT_DIR = os.getenv("OUTPUT_DIR", "./outputs")
-SCHEMA = os.getenv("DB_SCHEMA", "analytics")
+load_dotenv()
 
-# Basic validation (do not run with missing credentials)
-if not PG_USER or not PG_PASS:
-    log.error("PG_USER and PG_PASS must be set in your .env file. See .env.example.")
-    raise SystemExit(1)
+DB_NAME = os.getenv("DB_NAME")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
 
-# Ensure output directory exists
-Path(OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
 
-# -------------------------
-# 2) DB connection
-# -------------------------
-def get_engine():
-    conn_str = f"postgresql+psycopg2://{PG_USER}:{PG_PASS}@{PG_HOST}:{PG_PORT}/{PG_DB}"
-    log.info("🔗 Connecting to PostgreSQL...")
-    engine = create_engine(conn_str, pool_pre_ping=True, connect_args={"options": f"-csearch_path={SCHEMA}"})
-    log.info("✅ DB engine created.")
-    return engine
+# ----------------------------------------------------------
+# 3. Connect to PostgreSQL Database
+# ----------------------------------------------------------
+# Establish a connection to your local or hosted database.
+# If the connection fails, an error message will be printed.
+# ----------------------------------------------------------
 
-# -------------------------
-# 3) helpers: load view
-# -------------------------
-def load_view(engine, view_name, schema=SCHEMA):
-    qualified = f"{schema}.{view_name}"
-    log.info(f"📥 Loading view: {qualified}")
-    try:
-        df = pd.read_sql_table(view_name, con=engine, schema=schema)
-        log.info(f"   → Loaded {len(df):,} rows from {qualified}")
-        return df
-    except Exception as e:
-        # fallback to direct SELECT if read_sql_table fails
-        log.warning(f"read_sql_table failed for {qualified}: {e!s} — trying SELECT * FROM ...")
-        q = text(f"SELECT * FROM {schema}.{view_name};")
-        df = pd.read_sql(q, con=engine)
-        log.info(f"   → Loaded {len(df):,} rows from {qualified} (via SELECT)")
-        return df
-
-# -------------------------
-# 4) export CSV helper
-# -------------------------
-def export_csv(df: pd.DataFrame, name: str) -> str:
-    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"{name}_{ts}.csv"
-    path = os.path.join(OUTPUT_DIR, filename)
-    df.to_csv(path, index=False)
-    log.info(f"💾 Exported: {path}")
-    return path
-
-# -------------------------
-# 5) KPI calculations
-# -------------------------
-def compute_kpis(sales_df: pd.DataFrame, top_customers_df: pd.DataFrame, monthly_df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Expected columns in sales_df: price, customer_name
-    Expected columns in top_customers_df: customer_name, total_revenue (or total_revenue)
-    Expected columns in monthly_df: total_revenue (aggregate)
-    """
-
-    # Defensive renames (handle common variants)
-    df = sales_df.copy()
-    if "price" not in df.columns and "total_revenue" in df.columns:
-        df["price"] = df["total_revenue"]
-    if "customer_name" not in df.columns and "customer" in df.columns:
-        df["customer_name"] = df["customer"]
-
-    total_revenue = float(df["price"].sum()) if not df.empty else 0.0
-    total_orders = int(len(df))
-    avg_order_value = float(total_revenue / total_orders) if total_orders > 0 else 0.0
-    avg_revenue_per_customer = 0.0
-    if "customer_name" in df.columns and not df.empty:
-        avg_revenue_per_customer = float(df.groupby("customer_name")["price"].sum().mean())
-
-    # top customer
-    top_customer_name = None
-    top_customer_revenue = 0.0
-    if not top_customers_df.empty:
-        # try to fetch a revenue field if present
-        rcol = None
-        for c in ["total_revenue", "total_spent", "total_revenue"]:
-            if c in top_customers_df.columns:
-                rcol = c
-                break
-        # fallback use last numeric column
-        if rcol is None:
-            numeric_cols = top_customers_df.select_dtypes(include="number").columns
-            rcol = numeric_cols[0] if len(numeric_cols) > 0 else None
-
-        top_customer_name = top_customers_df.iloc[0]["customer_name"] if "customer_name" in top_customers_df.columns else top_customers_df.iloc[0].iloc[0]
-        top_customer_revenue = float(top_customers_df.iloc[0][rcol]) if rcol is not None else 0.0
-
-    # monthly growth (compare latest two months)
-    monthly_growth_pct = 0.0
-    try:
-        mdf = monthly_df.sort_values(["year", "month"]) if ("year" in monthly_df.columns and "month" in monthly_df.columns) else monthly_df
-        if not mdf.empty:
-            last = float(mdf.iloc[-1]["total_revenue"])
-            prev = float(mdf.iloc[-2]["total_revenue"]) if len(mdf) > 1 else last
-            if prev != 0:
-                monthly_growth_pct = (last - prev) / prev * 100
-            else:
-                monthly_growth_pct = 0.0
-    except Exception as e:
-        log.warning("Error computing monthly growth: %s", e)
-
-    kpis = {
-        "total_revenue": round(total_revenue, 2),
-        "total_orders": total_orders,
-        "avg_order_value": round(avg_order_value, 2),
-        "avg_revenue_per_customer": round(avg_revenue_per_customer, 2),
-        "top_customer_name": top_customer_name,
-        "top_customer_revenue": round(top_customer_revenue, 2),
-        "monthly_growth_pct": round(monthly_growth_pct, 2)
-    }
-
-    return pd.DataFrame([kpis])
-
-# -------------------------
-# 6) Run pipeline
-# -------------------------
-def run_pipeline():
-    engine = get_engine()
-
-    # Views to fetch (must match SQL pipeline)
-    views = {
-        "vw_sales_export": "vw_sales_export",
-        "summary_revenue_country": "summary_revenue_country",
-        "summary_top_customers": "summary_top_customers",
-        "summary_deal_size": "summary_deal_size",
-        "vw_monthly_revenue": "vw_monthly_revenue",
-        "vw_null_summary": "vw_null_summary"
-    }
-
-    dfs = {}
-    for key, view in views.items():
-        try:
-            dfs[key] = load_view(engine, view)
-        except Exception as e:
-            log.error("Failed to load view %s: %s", view, e)
-            dfs[key] = pd.DataFrame()  # continue with empty DF
-
-    # Export raw views to CSV
-    for key, df in dfs.items():
-        if df is None or df.empty:
-            log.warning("View %s is empty. Exporting empty CSV.", key)
-        export_csv(df, key)
-
-    # Compute KPIs (sales: vw_sales_export, top customers: summary_top_customers, monthly: vw_monthly_revenue)
-    kpi_df = compute_kpis(
-        sales_df=dfs.get("vw_sales_export", pd.DataFrame()),
-        top_customers_df=dfs.get("summary_top_customers", pd.DataFrame()),
-        monthly_df=dfs.get("vw_monthly_revenue", pd.DataFrame())
+try:
+    connection = psycopg2.connect(
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        host=DB_HOST,
+        port=DB_PORT
     )
-    export_csv(kpi_df, "kpi_summary")
+    print("✅ Database connection successful!")
+except Exception as e:
+    print("❌ Database connection failed:", e)
 
-    log.info("✅ ETL run complete. All outputs in: %s", os.path.abspath(OUTPUT_DIR))
+
+# ----------------------------------------------------------
+# 4. Load Data from SQL Tables or Views
+# ----------------------------------------------------------
+# You can use SQL queries directly in pandas to fetch clean data.
+# Example: pulling from a cleaned view like car_sales_cleaned_view.
+# ----------------------------------------------------------
+
+query = """
+SELECT *
+FROM car_sales_cleaned_view;
+"""
+
+df = pd.read_sql(query, connection)
+print(f"✅ Loaded {len(df)} rows from database")
 
 
-if __name__ == "__main__":
-    run_pipeline()
+# ----------------------------------------------------------
+# 5. Data Cleaning & Preparation
+# ----------------------------------------------------------
+# Clean missing values, fix data types, and handle inconsistencies.
+# ----------------------------------------------------------
+
+# Remove leading/trailing spaces
+df.columns = df.columns.str.strip()
+
+# Fill missing numeric values with 0
+numeric_cols = df.select_dtypes(include=np.number).columns
+df[numeric_cols] = df[numeric_cols].fillna(0)
+
+# Fill missing text fields with "Unknown"
+df = df.fillna("Unknown")
+
+# Convert date columns to datetime
+if 'Date' in df.columns:
+    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+
+# Verify final data types
+print("✅ Data cleaning complete. Data types:")
+print(df.dtypes.head())
+
+
+# ----------------------------------------------------------
+# 6. Feature Engineering
+# ----------------------------------------------------------
+# Create useful columns for dashboard metrics (e.g., profit margin, year, month).
+# ----------------------------------------------------------
+
+# Extract year and month from Date
+if 'Date' in df.columns:
+    df['Year'] = df['Date'].dt.year
+    df['Month'] = df['Date'].dt.month
+
+# Example: calculate profit margin if Price and Cost exist
+if 'Price' in df.columns and 'Cost' in df.columns:
+    df['Profit_Margin'] = ((df['Price'] - df['Cost']) / df['Cost']) * 100
+
+print("✅ Feature engineering complete.")
+
+
+# ----------------------------------------------------------
+# 7. Key Performance Indicators (KPI) Summary
+# ----------------------------------------------------------
+# Calculate main metrics: total sales, average price, top models, etc.
+# ----------------------------------------------------------
+
+total_revenue = df['Price'].sum()
+average_price = df['Price'].mean()
+top_model = df['Model'].value_counts().idxmax()
+
+print("\n🚀 KPI Summary:")
+print(f"Total Revenue: ${total_revenue:,.2f}")
+print(f"Average Price: ${average_price:,.2f}")
+print(f"Top-Selling Model: {top_model}")
+
+
+# ----------------------------------------------------------
+# 8. Optional: Quick Data Visualization (Matplotlib)
+# ----------------------------------------------------------
+# These visuals help validate data before exporting to Power BI.
+# ----------------------------------------------------------
+
+plt.figure(figsize=(8, 5))
+df.groupby('Year')['Price'].sum().plot(kind='bar')
+plt.title('Total Revenue by Year')
+plt.xlabel('Year')
+plt.ylabel('Revenue ($)')
+plt.tight_layout()
+plt.show()
+
+
+# ----------------------------------------------------------
+# 9. Export Cleaned Data for Power BI / Excel
+# ----------------------------------------------------------
+# The cleaned data can be exported to a CSV for visualization.
+# ----------------------------------------------------------
+
+output_path = "cleaned_car_sales.csv"
+df.to_csv(output_path, index=False)
+print(f"✅ Cleaned dataset exported to {output_path}")
+
+
+# ----------------------------------------------------------
+# 10. Close Database Connection
+# ----------------------------------------------------------
+
+connection.close()
+print("🔒 Database connection closed successfully.")
