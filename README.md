@@ -27,7 +27,7 @@ Insights and recommendations are provided across the following areas:
 **[View ETL & Analytics Script (etl_customers.sql)](https://github.com/aymaneben595/Automotive-Car-Sales-Analytics-ETL-/blob/b95acd9c102d59b0a3d4ecc820e2744f814c451d/Car%20Sales%20Project/VSCode%2C%20SQL%20%26%20Python/SQL/etl_customers.sql)**
 
 📊 **Dashboard:**  
-**[Download Car Sales Dark Mode Dashboard.pbix](./Car%20Sales%20Dark%20Mode%20Dashboard.pbix)**
+**[⬇️ Download Car Sales Dark Mode Dashboard.pbix](https://github.com/aymaneben595/Automotive-Car-Sales-Analytics-ETL-/raw/main/Car%20Sales%20Project/Power%20Bi/Car%20Sales%20Dark%20Mode%20Dashboard.pbix)**
 
 ---
 
