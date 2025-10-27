@@ -97,7 +97,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 4.  The dealer **Race Car Help (filtered by BMW)** shows a smaller total sales volume of **$1.1M from 44 cars**, providing specific insights into that brand/dealer combination.
 
 <p align="center">
-  <img src="[Place Customer Demographics visualization here]" alt="Customer Demographics Chart">
+  <img src="Images/dash2.PNG" alt="Customer Demographics Chart">
 </p>
 
 ---
