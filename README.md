@@ -79,7 +79,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 
 ### **Category 2: Dealer & Manufacturer Performance**
 
-1. Top dealers (e.g., **Rabun**, **Progressive**) generate **$30–40M** each — success is highly concentrated.  
+1. Top dealers (e.g., **Haddad**, **Progressive**) generate **$30–40M** each — success is highly concentrated.  
 2. **Mercedes-Benz** maintains the **highest ASV at $48K**, confirming luxury segment strength.  
 3. **U-Haul Co.** attracts the **wealthiest clients (up to $1.9M income)** — a benchmark for high-value targeting.  
 4. **Chevrolet** leads in **volume** but with lower ASV — showing the volume–margin trade-off.
