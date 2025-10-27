@@ -56,7 +56,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 * **Average Sales Value (ASV):** **$28.09K** — stable and healthy, validating consistent pricing strategies.
 
 <p align="center">
-  <img src="chat1.jpg" alt="Overall Sales Dashboard Snapshot">
+  <img src="Images/dash.PNG" alt="Overall Sales Dashboard Snapshot">
 </p>
 
 ---
