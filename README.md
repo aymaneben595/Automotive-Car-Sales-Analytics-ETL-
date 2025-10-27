@@ -110,7 +110,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 4.  The dealer **Race Car Help (BMW)** sees **Black** as the most common color sold (61%), followed by **Pale White (20%)** and **Red (18%)**—showing brand-specific color trends.
 
 <p align="center">
-  <img src="[Place Inventory Preference visualization here]" alt="Inventory Preference Chart">
+  <img src="Images/dash3.PNG" alt="Inventory Preference Chart">
 </p>
 
 ---
