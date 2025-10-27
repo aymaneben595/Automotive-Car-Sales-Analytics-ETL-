@@ -13,9 +13,10 @@ The dataset simulates a multi-brand automotive sales environment with a dual bus
 
 Key performance indicators (KPIs) tracked include:
 
-* **Total Revenue**
-* **Average Car Price (ASV)**
-* **Customer Segmentation**
+* **Total Cars Sold**
+* **Total Revenue (USD)**
+* **Total Customers**
+* **Avg. Car Price (USD)**
 
 Insights and recommendations are provided across four main areas:
 
