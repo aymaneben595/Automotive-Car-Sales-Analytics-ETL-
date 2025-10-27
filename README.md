@@ -13,7 +13,7 @@ Insights and recommendations are provided on the following key areas:
 - **Category 3: Customer Demographics & Behavior:** An assessment of how demographics (Gender, Income) influence purchase behavior and deal size.
 - **Category 4: Inventory & Product Preferences:** Analysis of color and transmission preferences to optimize stock.
 
-The SQL queries used to inspect and clean the data for this analysis, **including the creation of all final analytical views (e.g., `vw_car_sales_export`, `summary_sales_region`)**, can be found here **[View ETL & Analytics Script (etl\_customers.sql)](Car Sales Project/VSCode, SQL & Python/SQL/etl_customers.sql)**.
+The SQL queries used to inspect and clean the data for this analysis, **including the creation of all final analytical views (e.g., `vw_car_sales_export`, `summary_sales_region`)**, can be found here **[View ETL & Analytics Script (etl\_customers.sql)](./VSCode,%20SQL%20&%20Python/SQL/etl_customers.sql)**.
 
 An interactive Tableau dashboard used to report and explore sales trends can be found here **[Download Car Sales Dark Mode Dashboard.pbix](./Car%20Sales%20Dark%20Mode%20Dashboard.pbix)**.
 
@@ -27,7 +27,7 @@ The project's final analytical structure, created after an **ETL process in Post
 - **`vw_sales_export`:** A structured view for visualization tools, including calculated columns like `year` and `price_segment`.
 
 <p align="center">
-  <img src="[Place Entity Relationship Diagram image here]" alt="Entity Relationship Diagram (ERD)">
+  <img src="12334.PNG" alt="Overall Sales Dashboard Snapshot">
 </p>
 
 ---
@@ -98,7 +98,7 @@ The automotive market shows strong overall financial health, achieving **$671.5 
 
 * **Main insight 1.** **Pale White (47%) and Red (32%) account for almost 80% of all sales**. The simple story is that inventory should be drastically streamlined to prioritize these two popular colors.
   
-* **Main insight 2.** Customer preference for **Automatic transmission is overwhelmingly dominant** across all segments. This is the key metric indicating that capital is unnecessarily tied up in low-demand manual transmission stock.
+* **Main insight 2.** Customer preference for **Automatic transmission is overwhelmingly dominant** across all segments**. This is the key metric indicating that capital is unnecessarily tied up in low-demand manual transmission stock.
   
 * **Main insight 3.** The high-volume models (e.g., Chevrolet Equinox, Ford Escape) consistently deliver the required unit count, serving as the reliable engine for overall order volume metrics.
   
