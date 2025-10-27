@@ -13,11 +13,11 @@ Insights and recommendations are provided on the following key areas:
 - **Category 3: Customer Demographics & Behavior:** An assessment of how demographics (Gender, Income) influence purchase behavior and deal size.
 - **Category 4: Inventory & Product Preferences:** Analysis of color and transmission preferences to optimize stock.
 
-The SQL queries used to inspect and clean the data for this analysis can be found here **[Link to etl\_customers.sql]**.
+The SQL queries used to inspect and clean the data for this analysis can be found here **[etl_customers.sql](./etl_customers.sql)**.
 
-Targeted SQL queries regarding various business questions can be found here **[Link to analysis\_queries.sql if created]**.
+Targeted SQL queries regarding various business questions can be found here **[analysis_queries.sql](./analysis_queries.sql)**.
 
-An interactive Tableau dashboard used to report and explore sales trends can be found here **[Link to download Car Sales Dark Mode Dashboard.pbix]**.
+An interactive Tableau dashboard used to report and explore sales trends can be found here **[Download Car Sales Dark Mode Dashboard.pbix](./Car%20Sales%20Dark%20Mode%20Dashboard.pbix)**.
 
 ---
 
