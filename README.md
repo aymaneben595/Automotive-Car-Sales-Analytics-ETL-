@@ -84,7 +84,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 4.  **Chevrolet** leads in **Total Cars Sold (10.9K)** but maintains a lower **Avg. Price ($26K)**, contrasting with **Mercedes-Benz's $48K Avg. Price**—illustrating the volume–margin trade-off.
 
 <p align="center">
-  <img src="[Place Dealer Performance visualization here]" alt="Dealer Performance Chart">
+  <img src="Images/dealer.PNG" alt="Dealer Performance Chart">
 </p>
 
 ---
