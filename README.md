@@ -13,9 +13,7 @@ Insights and recommendations are provided on the following key areas:
 - **Category 3: Customer Demographics & Behavior:** An assessment of how demographics (Gender, Income) influence purchase behavior and deal size.
 - **Category 4: Inventory & Product Preferences:** Analysis of color and transmission preferences to optimize stock.
 
-The SQL queries used to inspect and clean the data for this analysis can be found here **[etl_customers.sql](./etl_customers.sql)**.
-
-Targeted SQL queries regarding various business questions can be found here **[analysis_queries.sql](./analysis_queries.sql)**.
+The SQL queries used to inspect and clean the data for this analysis, **including the creation of all final analytical views (e.g., `vw_car_sales_export`, `summary_sales_region`)**, can be found here **[View ETL & Analytics Script (etl\_customers.sql)](./etl_customers.sql)**.
 
 An interactive Tableau dashboard used to report and explore sales trends can be found here **[Download Car Sales Dark Mode Dashboard.pbix](./Car%20Sales%20Dark%20Mode%20Dashboard.pbix)**.
 
@@ -41,7 +39,7 @@ The project's final analytical structure, created after an **ETL process in Post
 The automotive market shows strong overall financial health, achieving **$671.5 Million in total revenue**, but this masks a severe imbalance in customer segmentation. Sales leadership needs to immediately address the fact that **Male customers account for 79% of purchases**, revealing a massive, untapped opportunity in the Female segment. Furthermore, sales peak reliably in **Q4**, informing resource allocation, while the Average Sales Value (ASV) remains stable at **$28.09K**, confirming successful premium pricing.
 
 <p align="center">
-  <img src="chat1.jpg" alt="Overall Sales Dashboard Snapshot">
+  <img src="12334.PNG" alt="Overall Sales Dashboard Snapshot">
 </p>
 
 ---
