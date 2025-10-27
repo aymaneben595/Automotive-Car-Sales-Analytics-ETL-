@@ -71,7 +71,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 4.  Sales bottomed out in **April 2023 at $12M**, revealing a significant mid-year dip.
 
 <p align="center">
-  <img src="[Place Sales Over Time visualization here]" alt="Sales Over Time Chart">
+  <img src="Images/over.PNG" alt="Sales Over Time Chart">
 </p>
 
 ---
