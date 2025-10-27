@@ -80,7 +80,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 
 1.  **Haddad Used Car Sales** is the top dealer, followed closely by **Progressive Shoppers C.** and **U-Haul Co.**.
 2.  The top three dealers each generate revenue **between $30M and $40M**—success is highly concentrated.
-3.  **U-Haul Co. excels at high-value transactions**, with **Total Sales of $35.9M** and attracting a customer with a **$1.91 Million Annual Income**.
+3.  **U-Haul Co.** excels at high-value transactions (filtered only by dealer), with **Total Sales of $35.9M** and attracting a customer with a **$1.91 Million Annual Income**.
 4.  **Chevrolet** leads in **Total Cars Sold (10.9K)** but maintains a lower **Avg. Price ($26K)**, contrasting with **Mercedes-Benz's $48K Avg. Price**—illustrating the volume–margin trade-off.
 
 <p align="center">
@@ -94,7 +94,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 1.  **Male customers account for 79%** of total sales—a critical imbalance showing massive underpenetration in the female market (21% share).
 2.  **U-Haul Co.'s top customers** include individuals with high annual incomes, such as **$1.91M** and **$2.01M**.
 3.  Sales volume is highest in the **Pacific and Atlantic regions**, indicating successful market concentration in coastal areas.
-4.  The dealer **Race Car Help** shows a smaller total sales volume of **$1.1M from 44 cars**, showing the performance difference across the dealer network.
+4.  The dealer **Race Car Help (filtered by BMW)** shows a smaller total sales volume of **$1.1M from 44 cars**, providing specific insights into that brand/dealer combination.
 
 <p align="center">
   <img src="[Place Customer Demographics visualization here]" alt="Customer Demographics Chart">
@@ -107,7 +107,7 @@ The automotive market achieved **$671.5 Million in total revenue**, demonstratin
 1.  Across the entire dataset, **Red (21%) and Pale White (47%)** are dominant colors, and inventory should prioritize these.
 2.  **Automatic transmissions are overwhelmingly preferred** by customers across all dealers, as evidenced by both the high-volume dealer **U-Haul Co.** (approx. 650 Auto vs. 60 Manual) and **Race Car Help** (approx. 30 Auto vs. 15 Manual).
 3.  The top models sold by **U-Haul Co.** by revenue are the **LS400, Silhouette, and Jetta**.
-4.  The dealer **Race Car Help** sees **Black** as the most common color sold (61%), followed by **Pale White (20%)** and **Red (18%)**.
+4.  The dealer **Race Car Help (BMW)** sees **Black** as the most common color sold (61%), followed by **Pale White (20%)** and **Red (18%)**—showing brand-specific color trends.
 
 <p align="center">
   <img src="[Place Inventory Preference visualization here]" alt="Inventory Preference Chart">
@@ -138,6 +138,7 @@ To support **Sales & Marketing Leadership** decisions:
 
 ## ⚙️ Assumptions & Caveats
 
+* **Drill Through Context:** It is assumed that the **U-Haul Co.** analysis is filtered **only by dealer name**, while the **Race Car Help** analysis is filtered by **Dealer Name and Company (BMW)**.
 * **Data Exclusion:** Less than 1% of records with missing `price` or `sale_date` were excluded.
 * **Currency:** All prices and income standardized to **USD** after cleaning.
 * **Transmission Classification:** Variants like “Auto” and “Automatic” were unified for clarity.
