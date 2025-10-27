@@ -13,7 +13,7 @@ Insights and recommendations are provided on the following key areas:
 - **Category 3: Customer Demographics & Behavior:** An assessment of how demographics (Gender, Income) influence purchase behavior and deal size.
 - **Category 4: Inventory & Product Preferences:** Analysis of color and transmission preferences to optimize stock.
 
-The SQL queries used to inspect and clean the data for this analysis, **including the creation of all final analytical views (e.g., `vw_car_sales_export`, `summary_sales_region`)**, can be found here **[View ETL & Analytics Script (etl\_customers.sql)](./VSCode,%20SQL%20&%20Python/SQL/etl_customers.sql)**.
+The SQL queries used to inspect and clean the data for this analysis, **including the creation of all final analytical views (e.g., `vw_car_sales_export`, `summary_sales_region`)**, can be found here **[View ETL & Analytics Script (etl\_customers.sql)]([./VSCode,%20SQL%20&%20Python/SQL/etl_customers.sql](https://github.com/aymaneben595/Automotive-Car-Sales-Analytics-ETL-/blob/c23bdb3393b3a300bc1b8c03badea62426477b5e/Car%20Sales%20Project/VSCode%2C%20SQL%20%26%20Python/SQL/etl_customers.sql))**.
 
 An interactive Tableau dashboard used to report and explore sales trends can be found here **[Download Car Sales Dark Mode Dashboard.pbix](./Car%20Sales%20Dark%20Mode%20Dashboard.pbix)**.
 
