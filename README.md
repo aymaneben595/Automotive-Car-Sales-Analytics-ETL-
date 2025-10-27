@@ -108,11 +108,11 @@ The automotive market generated **$671.5 Million in total revenue**, demonstrati
 
 ## 💡 Recommendations
 
-1.  **Target Female Customers:** Launch campaigns for the 21% female segment.
-2.  **Replicate Top Dealer Practices:** Train other dealers using **U-Haul Co.’s** high-value acquisition strategies.
-3.  **Capitalize on Q4 Momentum:** Focus marketing and staff incentives during **Q4**, which peaked at **$61M in October**.
-4.  **Streamline Inventory:** Reduce low-demand manual stock and focus on **popular colors and Automatic transmissions**.
-5.  **Address Seasonal Lulls:** Investigate **April 2023 dip ($12M)** and implement targeted incentives.
+1. **Target Female Customers:** Launch campaigns for the 21% female segment.
+2. **Replicate Top Dealer Practices:** Train other dealers using **U-Haul Co.’s** high-value acquisition strategies.
+3. **Capitalize on Q4 Momentum:** Focus marketing and staff incentives during **Q4**, which peaked at **$61M in October**.
+4. **Streamline Inventory:** Reduce low-demand manual stock and focus on **popular colors and Automatic transmissions**.
+5. **Address Seasonal Lulls:** Investigate **April 2023 dip ($12M)** and implement targeted incentives.
 
 ## ⚙️ Assumptions & Caveats
 
