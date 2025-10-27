@@ -145,7 +145,7 @@ To support **Sales & Marketing Leadership** decisions:
 ---
 
 <p align="center">
-  <i>Created by Aïmane Benkhadda — Data Analyst (Excel, SQL, Python, Power BI)</i>  
+  <i>Created by Aïmane Benkhadda — Data Analyst (Excel, SQL, Power BI, Python)</i>  
   <br>
   <a href="mailto:aymanebenkhadda5959@gmail.com">aymanebenkhadda5959@gmail.com</a>
 </p>
