@@ -27,7 +27,7 @@ The project's final analytical structure, created after an **ETL process in Post
 - **`vw_sales_export`:** A structured view for visualization tools, including calculated columns like `year` and `price_segment`.
 
 <p align="center">
-  <img src="12334.PNG" alt="Overall Sales Dashboard Snapshot">
+  <img src="[Place Entity Relationship Diagram image here]" alt="Entity Relationship Diagram (ERD)">
 </p>
 
 ---
@@ -98,7 +98,7 @@ The automotive market shows strong overall financial health, achieving **$671.5 
 
 * **Main insight 1.** **Pale White (47%) and Red (32%) account for almost 80% of all sales**. The simple story is that inventory should be drastically streamlined to prioritize these two popular colors.
   
-* **Main insight 2.** Customer preference for **Automatic transmission is overwhelmingly dominant** across all segments**. This is the key metric indicating that capital is unnecessarily tied up in low-demand manual transmission stock.
+* **Main insight 2.** Customer preference for **Automatic transmission is overwhelmingly dominant** across all segments. This is the key metric indicating that capital is unnecessarily tied up in low-demand manual transmission stock.
   
 * **Main insight 3.** The high-volume models (e.g., Chevrolet Equinox, Ford Escape) consistently deliver the required unit count, serving as the reliable engine for overall order volume metrics.
   
