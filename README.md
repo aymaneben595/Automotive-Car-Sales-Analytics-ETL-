@@ -75,10 +75,10 @@ The automotive market generated **$671.5 Million in total revenue**, demonstrati
 
 ### **Category 2: Dealer & Manufacturer Performance**
 
-1.  **Haddad Used Car Sales** is the top dealer, followed by **Progressive Shoppers C.** and **U-Haul Co.**.
-2.  The top three dealers each generate **$30M–$40M**, showing highly concentrated success.
-3.  **U-Haul Co.** excels at high-value transactions, with **$35.9M in total sales** and attracting customers with up to **$1.91M annual income**.
-4.  **Chevrolet** leads in **total cars sold (10.9K)** but has a lower **Avg. Price ($26K)**, compared to **Mercedes-Benz's $48K Avg. Price**, illustrating the volume–margin trade-off.
+1. **Haddad Used Car Sales** is the top dealer, followed by **Progressive Shoppers C.** and **U-Haul Co.**  
+2. The top three dealers each generate **$30M–$40M**, showing highly concentrated success.  
+3. **U-Haul Co.** excels at high-value transactions, with **$35.9M in total sales** and attracting customers with up to **$1.91M annual income**.  
+4. **Chevrolet** leads in **total cars sold (10.9K)** but has a lower **Avg. Price ($26K)**, compared to **Mercedes-Benz's $48K Avg. Price**, illustrating the volume–margin trade-off.
 
 <p align="center">
   <img src="Images/dealer.PNG" alt="Dealer Performance Chart">
@@ -86,10 +86,10 @@ The automotive market generated **$671.5 Million in total revenue**, demonstrati
 
 ### **Category 3: Customer Demographics & Behavior**
 
-1.  **Male customers represent 79%** of total sales, revealing a significant female market opportunity (21%).
-2.  **U-Haul Co.'s top customers** include individuals with high annual incomes, such as **$1.91M and $2.01M**.
-3.  Sales are highest in the **Pacific and Atlantic regions**, showing successful market concentration in coastal areas.
-4.  Dealer **Race Car Help (BMW)** shows **$1.1M from 44 cars**, giving insights into brand-specific performance.
+1. **Male customers** represent 79% of total sales, revealing a significant female market opportunity (21%).  
+2. **U-Haul Co.'s top customers** include individuals with high annual incomes, such as **$1.91M** and **$2.01M**.  
+3. Sales are highest in the **Pacific and Atlantic regions**, showing successful market concentration in coastal areas.  
+4. Dealer **Race Car Help (BMW)** shows **$1.1M from 44 cars**, giving insights into brand-specific performance.
 
 <p align="center">
   <img src="Images/dash2.PNG" alt="Customer Demographics Chart">
