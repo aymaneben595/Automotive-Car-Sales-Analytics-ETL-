@@ -40,7 +40,7 @@ Two main analytical artifacts were produced:
 - **`vw_sales_export`** → Analytical view for BI tools (with calculated fields like `year` and `price_segment`)
 
 <p align="center">
-  <img src="[Place Entity Relationship Diagram image here]" alt="Entity Relationship Diagram (ERD)">
+  <img src="Car%20Sales%20Project/Images/car_sales_erd.png" alt="Entity Relationship Diagram (ERD)">
 </p>
 
 ---
