@@ -19,10 +19,10 @@ Key performance indicators (KPIs) tracked include:
 
 Insights and recommendations are provided across four main areas:
 
-1.  **Sales Trends Analysis:** Revenue, order volume, and average car price (ASV) patterns.
-2.  **Dealer & Manufacturer Performance:** Identifying top-performing dealers and analyzing volume vs value.
-3.  **Customer Demographics & Behavior:** Understanding how gender and income influence purchases.
-4.  **Inventory & Product Preferences:** Popular colors, transmissions, and model trends.
+1. **Sales Trends Analysis:** Revenue, order volume, and average car price (ASV) patterns  
+2. **Dealer & Manufacturer Performance:** Identifying top-performing dealers and analyzing volume vs value  
+3. **Customer Demographics & Behavior:** Understanding how gender and income influence purchases  
+4. **Inventory & Product Preferences:** Popular colors, transmissions, and model trends
 
 🔗 **SQL ETL Script:**  
 **[View ETL & Analytics Script (etl_customers.sql)](https://github.com/aymaneben595/Automotive-Car-Sales-Analytics-ETL-/blob/b95acd9c102d59b0a3d4ecc820e2744f814c451d/Car%20Sales%20Project/VSCode%2C%20SQL%20%26%20Python/SQL/etl_customers.sql)**
@@ -64,10 +64,10 @@ The automotive market generated **$671.5 Million in total revenue**, demonstrati
 
 ### **Category 1: Sales Trends Analysis**
 
-1.  **Total revenue reached $671.5M**, supported by **23.91K cars sold**.
-2.  **October 2023 peaked at $61M**, demonstrating strong Q4 momentum.
-3.  **ASV remained steady at $28.09K**, validating consistent pricing.
-4.  Sales bottomed out in **April 2023 at $12M**, indicating a mid-year dip.
+1. **Total revenue reached $671.5M**, supported by **23.91K cars sold**  
+2. **October 2023 peaked at $61M**, demonstrating strong Q4 momentum  
+3. **ASV remained steady at $28.09K**, validating consistent pricing  
+4. Sales bottomed out in **April 2023 at $12M**, indicating a mid-year dip
 
 <p align="center">
   <img src="Images/over.PNG" alt="Sales Over Time Chart">
