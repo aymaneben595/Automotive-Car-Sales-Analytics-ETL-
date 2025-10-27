@@ -97,10 +97,10 @@ The automotive market generated **$671.5 Million in total revenue**, demonstrati
 
 ### **Category 4: Inventory & Product Preferences**
 
-1.  Across the dataset, **Red (21%) and Pale White (47%)** dominate, and inventory should prioritize these.
-2.  **Automatic transmissions are strongly preferred**, as seen at **U-Haul Co.** (approx. 650 Auto vs. 60 Manual) and **Race Car Help** (approx. 30 Auto vs. 15 Manual).
-3.  Top models sold by **U-Haul Co.** are **LS400, Silhouette, and Jetta**.
-4.  Dealer **Race Car Help (BMW)** sells mostly **Black (61%)**, followed by **Pale White (20%) and Red (18%)**, showing brand-specific trends.
+1. Across the dataset, **Red (21%)** and **Pale White (47%)** dominate, and inventory should prioritize these.  
+2. **Automatic transmissions** are strongly preferred, as seen at **U-Haul Co.** (approx. 650 Auto vs. 60 Manual) and **Race Car Help** (approx. 30 Auto vs. 15 Manual).  
+3. Top models sold by **U-Haul Co.** are **LS400, Silhouette, and Jetta**.  
+4. Dealer **Race Car Help (BMW)** sells mostly **Black (61%)**, followed by **Pale White (20%)** and **Red (18%)**, showing brand-specific trends.
 
 <p align="center">
   <img src="Images/dash3.PNG" alt="Inventory Preference Chart">
